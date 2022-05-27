@@ -30,10 +30,13 @@ class StocksFileEditor{
                 String stock_ticker  = sheet.getRow(cell.getRowIndex()).getCell(0).getStringCellValue();
                 if (cell.getColumnIndex() == 0 && cell.getRowIndex() > 0)  {
                     System.out.println("MADE IT");
+                    // take each value in each cell to find the curretn sotck ticker value as an array to feed the HomeworkHelper function
                     ArrayList<String> array = new ArrayList<>();
                     array.add(stock_ticker + " stock");
                     System.out.println("STOCK PRICE: " + WebCrawler.HomeworkHelper(array));
-                    cell.setCellValue(stock_ticker + " - " + WebCrawler.HomeworkHelper(array).replace("<", "").replace(">", ""));
+                    // creating a new cell in next column for each of the corresponding newfound ticker values
+                    row.createCell(1)
+                    row.getCell(1).setCellValue( WebCrawler.HomeworkHelper(array).replace("<", "").replace(">", ""));
                 }
             }
         }

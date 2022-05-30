@@ -20,6 +20,7 @@ public class WebCrawler {
             Document document = Jsoup.connect(URL).get();
             //cutting out extra parts and getting just the answer
             if (document.select("div.Z0LcW.XcVN5d") != null){
+                // trying different html tags google web pages usually have around its featured snippets text from which this webcrawler is returning "answers" to our inputed questions
                 try {
                     Elements answer = document.select("div.Z0LcW.XcVN5d");
                     String answerToString = answer.toString();
@@ -59,8 +60,6 @@ public class WebCrawler {
                                 String FinalAnswer1 = answer3ToString;
                                 int index = FinalAnswer1.indexOf(">");
                                 String FinalAnswer2 =  FinalAnswer1.substring(index+6, FinalAnswer1.length()-12);
-                                //String FinalAnswer3 = FinalAnswer2.replace("<span", "");
-                                //String FinalAnswer4 = FinalAnswer3.replace("</span>", "");
                                 String FinalAnswer5 = FinalAnswer2.replace("<", "");
                                 String FinalAnswer6 = FinalAnswer5.replace(">","");
                                 return FinalAnswer6;
@@ -72,8 +71,6 @@ public class WebCrawler {
                                     String FinalAnswer1 = answer3ToString;
                                     int index = FinalAnswer1.indexOf(">");
                                     String FinalAnswer2 =  FinalAnswer1.substring(index+6, FinalAnswer1.length()-12);
-                                    //String FinalAnswer3 = FinalAnswer2.replace("<span", "");
-                                    //String FinalAnswer4 = FinalAnswer3.replace("</span>", "");
                                     String FinalAnswer5 = FinalAnswer2.replace("<", "");
                                     String FinalAnswer6 = FinalAnswer5.replace(">","");
                                     String FinalAnswer7 = FinalAnswer6.replace("ệ","e");
@@ -138,13 +135,6 @@ public class WebCrawler {
     }
 
 
-
-
-
-
-//span class = hgKElc
-//div class="Z0LcW XcVN5d AZCkJd"
-//pre#tw-target-text.tw-data-text.tw-text-large.XcVN5d.tw-ta
 
     public static void main(String[] args) throws IOException {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object

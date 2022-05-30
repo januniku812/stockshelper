@@ -14,6 +14,7 @@ class StocksFileEditor{
     }
 
     public static void run() throws IOException{
+        // opening the xlsx with the stock tickers to be read in the first column
         File file = new File("C:\\Users\\jshar\\Ideaproject2\\stockshelper\\src\\main\\java\\highrisktradesinput.xlsx");
         FileInputStream fileInputStream = new FileInputStream(file);
         XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
